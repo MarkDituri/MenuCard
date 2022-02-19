@@ -1,2 +1,0 @@
-# MenuCard
-POO PHP
