@@ -1,54 +1,67 @@
-    <!-- Sidebar menu-->
-    <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
-    <aside class="app-sidebar">
-      <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="<?= media();?>/images/avatar.png" alt="User Image">
-        <div>
-          <p class="app-sidebar__user-name">Abel OSH</p>
-          <p class="app-sidebar__user-designation">Administrador</p>
+<div class="main-overlay"></div>
+
+<header class="header-default">
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-xl">
+            <!-- site logo -->
+            <a class="navbar-brand" href="index.html"><img src="<?= media();?>/images/logo.svg" alt="logo" /></a> 
+
+            <div class="collapse navbar-collapse">
+                <!-- menus -->
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item dropdown active">
+                        <a class="nav-link dropdown-toggle" href="index.html">Home</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="index.html">Magazine</a></li>
+                            <li><a class="dropdown-item" href="personal.html">Personal</a></li>
+                            <li><a class="dropdown-item" href="personal-alt.html">Personal Alt</a></li>
+                            <li><a class="dropdown-item" href="minimal.html">Minimal</a></li>
+                            <li><a class="dropdown-item" href="classic.html">Classic</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="category.html">Lifestyle</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="category.html">Inspiration</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#">Pages</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="category.html">Category</a></li>
+                            <li><a class="dropdown-item" href="blog-single.html">Blog Single</a></li>
+                            <li><a class="dropdown-item" href="blog-single-alt.html">Blog Single Alt</a></li>
+                            <li><a class="dropdown-item" href="about.html">About</a></li>
+                            <li><a class="dropdown-item" href="contact.html">Contact</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- header right section -->
+            <div class="header-right">
+                <!-- social icons -->
+                <ul class="social-icons list-unstyled list-inline mb-0">
+                    <li class="list-inline-item"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                    <li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
+                    <li class="list-inline-item"><a href="#"><i class="fab fa-instagram"></i></a></li>
+                    <li class="list-inline-item"><a href="#"><i class="fab fa-pinterest"></i></a></li>
+                    <li class="list-inline-item"><a href="#"><i class="fab fa-medium"></i></a></li>
+                    <li class="list-inline-item"><a href="#"><i class="fab fa-youtube"></i></a></li>
+                </ul>
+                <!-- header buttons -->
+                <div class="header-buttons">
+                    <button class="search icon-button">
+                        <i class="icon-magnifier"></i>
+                    </button>
+                    <button class="burger-menu icon-button">
+                        <span class="burger-icon"></span>
+                    </button>
+                </div>
+            </div>
         </div>
-      </div>
-      <ul class="app-menu">
-        <li>
-            <a class="app-menu__item" href="<?= base_url(); ?>/dashboard">
-                <i class="app-menu__icon fa fa-dashboard"></i>
-                <span class="app-menu__label">Dashboard</span>
-            </a>
-        </li>
-        <li class="treeview">
-            <a class="app-menu__item" href="#" data-toggle="treeview">
-                <i class="app-menu__icon fa fa-users" aria-hidden="true"></i>
-                <span class="app-menu__label">Usuarios</span>
-                <i class="treeview-indicator fa fa-angle-right"></i>
-            </a>
-            <ul class="treeview-menu">
-                <li><a class="treeview-item" href="<?= base_url(); ?>/usuarios"><i class="icon fa fa-circle-o"></i> Usuarios</a></li>
-                <li><a class="treeview-item" href="<?= base_url(); ?>/roles"><i class="icon fa fa-circle-o"></i> Roles</a></li>
-                <li><a class="treeview-item" href="<?= base_url(); ?>/permisos"><i class="icon fa fa-circle-o"></i> Permisos</a></li>
-            </ul>
-        </li>
-        <li>
-            <a class="app-menu__item" href="<?= base_url(); ?>/clientes">
-                <i class="app-menu__icon fa fa-user" aria-hidden="true"></i>
-                <span class="app-menu__label">Clientes</span>
-            </a>
-        </li>
-        <li>
-            <a class="app-menu__item" href="<?= base_url(); ?>/productos">
-                <i class="app-menu__icon fa fa-archive" aria-hidden="true"></i>
-                <span class="app-menu__label">Productos</span>
-            </a>
-        </li>
-        <li>
-            <a class="app-menu__item" href="<?= base_url(); ?>/pedidos">
-                <i class="app-menu__icon fa fa-shopping-cart" aria-hidden="true"></i>
-                <span class="app-menu__label">Pedidos</span>
-            </a>
-        </li>
-        <li>
-            <a class="app-menu__item" href="<?= base_url(); ?>/logout">
-                <i class="app-menu__icon fa fa-sign-out" aria-hidden="true"></i>
-                <span class="app-menu__label">Logout</span>
-            </a>
-        </li>
-      </ul>
-    </aside>
+    </nav>
+</header>

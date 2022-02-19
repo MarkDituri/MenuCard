@@ -1,23 +1,32 @@
-    <script>
-        const base_url = "<?= base_url(); ?>";
-    </script>
-    <!-- Essential javascripts for application to work-->
-    <script src="<?= media(); ?>/js/jquery-3.3.1.min.js"></script>
-    <script src="<?= media(); ?>/js/popper.min.js"></script>
-    <script src="<?= media(); ?>/js/bootstrap.min.js"></script>
-    <script src="<?= media(); ?>/js/main.js"></script>
-    <script src="<?= media();?>/js/fontawesome.js"></script>
-    <script src="<?= media(); ?>/js/functions_admin.js"></script>
-    <!-- The javascript plugin to display page loading on top-->
-    <script src="<?= media(); ?>/js/plugins/pace.min.js"></script>
-    <!-- Page specific javascripts-->
-     <script type="text/javascript" src="<?= media(); ?>/js/plugins/sweetalert.min.js"></script>
+    <footer>
+        <div class="container-xl">
+            <div class="footer-inner">
+                <div class="row d-flex align-items-center gy-4">
+                    <!-- copyright text -->
+                    <div class="col-md-4">
+                        <span class="copyright">© 2021 Katen. Template by ThemeGer.</span>
+                    </div>
 
-    <!-- Data table plugin-->
-    <script type="text/javascript" src="<?= media(); ?>/js/plugins/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" src="<?= media(); ?>/js/plugins/dataTables.bootstrap.min.js"></script>
+                    <!-- social icons -->
+                    <div class="col-md-4 text-center">
+                        <ul class="social-icons list-unstyled list-inline mb-0">
+                            <li class="list-inline-item"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                            <li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
+                            <li class="list-inline-item"><a href="#"><i class="fab fa-instagram"></i></a></li>
+                            <li class="list-inline-item"><a href="#"><i class="fab fa-pinterest"></i></a></li>
+                            <li class="list-inline-item"><a href="#"><i class="fab fa-medium"></i></a></li>
+                            <li class="list-inline-item"><a href="#"><i class="fab fa-youtube"></i></a></li>
+                        </ul>
+                    </div>
 
-    <script src="<?= media(); ?>/js/functions_roles.js"></script>
+                    <!-- go to top button -->
+                    <div class="col-md-4">
+                        <a href="#" id="return-to-top" class="float-md-end"><i class="icon-arrow-up"></i>Back to Top</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 
   </body>
 </html>

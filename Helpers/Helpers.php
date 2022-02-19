@@ -15,11 +15,16 @@
         $view_header = "Views/Template/header_admin.php";
         require_once ($view_header);
     }
-    function footerAdmin($data="")
+    function scriptsAdmin($data="")
     {
         $view_footer = "Views/Template/footer_admin.php";
         require_once ($view_footer);        
     }
+    function footerAdmin($data="")
+    {
+        $view_scripts = "Views/Template/scripts_admin.php";
+        require_once ($view_scripts);        
+    }	
 	//Muestra información formateada
 	function dep($data)
     {
