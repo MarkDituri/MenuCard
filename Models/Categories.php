@@ -4,18 +4,11 @@ require_once("Libraries/Core/Mysql.php");
 
 trait Categories{
 	private $con;
-	private $strCategoria;
-	private $intIdcategoria;
-	private $intIdProducto;
-	private $strProducto;
-	private $cant;
-	private $option;
-	private $strRuta;
-	private $strRutaCategoria;
+	private $int_id_restaurant;
 
-	public function getCategories(){
+	public function getCategories($id_restaurant){
 		$this->con = new Mysql();
-		$sql = "SELECT * FROM categories WHERE status = 'si';";			
+		$sql = "SELECT * FROM categories WHERE id_restaurant = $id_restaurant AND status = 'si';";			
 		$request = $this->con->select_all($sql);		
 		return $request;	
 	}

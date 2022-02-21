@@ -1,9 +1,22 @@
 <?php 
 headerAdmin($data); 
 //Slider traer Datos
+
+$arrdatosRest = $data['datosRest'];
+$arrdatosMesa = $data['datosMesa'];
+
 $arrSlider = $data['slider'];
 $arrCategories = $data['categories'];
 $arrProduct = $data['products'];
+
+
+echo "<pre>";
+var_dump($arrdatosRest);
+echo "</pre>";
+
+echo "<pre>";
+var_dump($arrSlider);
+echo "</pre>";
 
 ?>
 <section id="hero">
@@ -13,6 +26,7 @@ $arrProduct = $data['products'];
   <div class="row gy-4">			
     <!--Main Menu-->
     <div class="col-lg-8">	
+      <h1>Bienvenidos a <?= $arrdatosRest[0]['nombre']?></h1>
       <!-- featured post large -->
       <div id="cont-sliders" class="row post-carousel-twoCol post-carousel">
         <!-- Slide 1 -->
@@ -96,21 +110,7 @@ $arrProduct = $data['products'];
                 $img_product = $arrProduct[$i]['url_img'];
             ?>
               <!-- Product -->
-              <div class="post post-list-sm circle">
-                <div class="thumb circle">
-                  <a href="blog-single.html">
-                    <div id="url_img" class="inner">
-                      <img src="<?= media();?>/images/products/<?= $img_product;?>" alt="post-title" />
-                    </div>
-                  </a>
-                </div>
-                <div class="details clearfix">
-                  <h6 id="title_product" class="post-title my-0"><a href="blog-single.html"><?= $name_product;?></a></h6>
-                  <ul class="meta list-inline mt-1 mb-0">
-                    <li id="description_product" class="list-inline-item"><?= $description_product;?></li>
-                  </ul>
-                </div>
-              </div>
+
               <!-- Fin Product -->
             <?php  }; ?>
           </div>

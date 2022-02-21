@@ -22,7 +22,6 @@ trait Product{
 
 	public function getProduct(int $id_category)
     {
-        $this->int_id_category = $id_category;
         $sql = "SELECT id_product,status,name,description,precio,url_img
         FROM products WHERE id_category = $id_category AND status = 'si'";
 		$request = $this->selectProduct($sql);
