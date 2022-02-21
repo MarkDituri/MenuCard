@@ -10,6 +10,7 @@
     <script src="<?= media(); ?>/js/slick.min.js"></script>
     <script src="<?= media(); ?>/js/jquery.sticky-sidebar.min.js"></script>
     <script src="<?= media(); ?>/js/custom.js"></script>
+    <script src="<?= media(); ?>/js/functions.js"></script>
     <!-- The javascript plugin to display page loading on top-->
     <script src="<?= media(); ?>/js/plugins/pace.min.js"></script>
     <!-- Page specific javascripts-->

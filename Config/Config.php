@@ -18,7 +18,7 @@
 	const SPM = ",";
 
 	//Simbolo de moneda
-	const SMONEY = "Q";
+	const SMONEY = "$";
 
 	
 

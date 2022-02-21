@@ -1,3 +1,5 @@
+
+
 $(window).on('load', function(){
     "use strict";
     /*=========================================================================
@@ -118,7 +120,7 @@ $(document).ready(function() {
 
     $('.post-carousel-widget').slick({
       dots: false,
-      infinite: true,
+      infinite: false,
       speed: 300,
       slidesToShow: 1,
       centerMode: true,
@@ -241,5 +243,7 @@ $(function(){
       var bgimage = list[i].getAttribute('data-bg-image');
       list[i].style.backgroundImage  = "url('" + bgimage + "')";
     }
+
+
 
 });
