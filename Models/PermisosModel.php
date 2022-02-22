@@ -1,53 +1,88 @@
 <?php 
 
-	class PermisosModel extends Mysql
+	class sessionQR extends Mysql
 	{
-		public $intIdpermiso;
-		public $intRolid;
-		public $intModuloid;
-		public $r;
-		public $w;
-		public $u;
-		public $d;
+		private $intIdUsuario;
+		private $strUsuario;
+		private $strPassword;
+		private $strToken;
 
 		public function __construct()
 		{
 			parent::__construct();
-		}
-
-		public function selectModulos()
-		{
-			$sql = "SELECT * FROM modulo WHERE status != 0";
-			$request = $this->select_all($sql);
-			return $request;
 		}	
-		public function selectPermisosRol(int $idrol)
+
+		public function loginUser(string $usuario, string $password)
 		{
-			$this->intRolid = $idrol;
-			$sql = "SELECT * FROM permisos WHERE rolid = $this->intRolid";
-			$request = $this->select_all($sql);
+			$this->strUsuario = $usuario;
+			$this->strPassword = $password;
+			$sql = "SELECT idpersona,status FROM persona WHERE 
+					email_user = '$this->strUsuario' and 
+					password = '$this->strPassword' and 
+					status != 0 ";
+			$request = $this->select($sql);
 			return $request;
 		}
 
-		public function deletePermisos(int $idrol)
-		{
-			$this->intRolid = $idrol;
-			$sql = "DELETE FROM permisos WHERE rolid = $this->intRolid";
-			$request = $this->delete($sql);
+		public function sessionQR(int $iduser){
+			$this->intIdUsuario = $iduser;
+			//BUSCAR ROLE 
+			$sql = "SELECT p.idpersona,
+							p.identificacion,
+							p.nombres,
+							p.apellidos,
+							p.telefono,
+							p.email_user,
+							p.nit,
+							p.nombrefiscal,
+							p.direccionfiscal,
+							r.idrol,r.nombrerol,
+							p.status 
+					FROM persona p
+					INNER JOIN rol r
+					ON p.rolid = r.idrol
+					WHERE p.idpersona = $this->intIdUsuario";
+			$request = $this->select($sql);
+			$_SESSION['userData'] = $request;
 			return $request;
 		}
 
-		public function insertPermisos(int $idrol, int $idmodulo, int $r, int $w, int $u, int $d){
-			$this->intRolid = $idrol;
-			$this->intModuloid = $idmodulo;
-			$this->r = $r;
-			$this->w = $w;
-			$this->u = $u;
-			$this->d = $d;
-			$query_insert  = "INSERT INTO permisos(rolid,moduloid,r,w,u,d) VALUES(?,?,?,?,?,?)";
-        	$arrData = array($this->intRolid, $this->intModuloid, $this->r, $this->w, $this->u, $this->d);
-        	$request_insert = $this->insert($query_insert,$arrData);		
-	        return $request_insert;
+		public function getUserEmail(string $strEmail){
+			$this->strUsuario = $strEmail;
+			$sql = "SELECT idpersona,nombres,apellidos,status FROM persona WHERE 
+					email_user = '$this->strUsuario' and  
+					status = 1 ";
+			$request = $this->select($sql);
+			return $request;
+		}
+
+		public function setTokenUser(int $idpersona, string $token){
+			$this->intIdUsuario = $idpersona;
+			$this->strToken = $token;
+			$sql = "UPDATE persona SET token = ? WHERE idpersona = $this->intIdUsuario ";
+			$arrData = array($this->strToken);
+			$request = $this->update($sql,$arrData);
+			return $request;
+		}
+
+		public function getUsuario(string $email, string $token){
+			$this->strUsuario = $email;
+			$this->strToken = $token;
+			$sql = "SELECT idpersona FROM persona WHERE 
+					email_user = '$this->strUsuario' and 
+					token = '$this->strToken' and 					
+					status = 1 ";
+			$request = $this->select($sql);
+			return $request;
+		}
+
+		public function insertPassword(int $idPersona, string $password){
+			$this->intIdUsuario = $idPersona;
+			$this->strPassword = $password;
+			$sql = "UPDATE persona SET password = ?, token = ? WHERE idpersona = $this->intIdUsuario ";
+			$arrData = array($this->strPassword,"");
+			$request = $this->update($sql,$arrData);
+			return $request;
 		}
 	}
  ?>

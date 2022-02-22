@@ -19,10 +19,10 @@ class Product extends Controllers{
 		$this->views->getView($this,"product",$data);
 	}
 
-    public function getProduct(int $id_category)
+    public function getProduct(int $id_restaurant)
     {
         
-        $arrData = $this->model->selectProduct($id_category);
+        $arrData = $this->model->selectProduct($id_restaurant);
         if(empty($arrData))
         {
             $arrResponse = array('status' => false, 'msg' => $arrData);
@@ -32,5 +32,7 @@ class Product extends Controllers{
         echo json_encode($arrResponse,JSON_UNESCAPED_UNICODE);            
 		
     }
+
+    
 }
  ?>

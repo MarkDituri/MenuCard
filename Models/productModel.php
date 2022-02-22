@@ -27,6 +27,7 @@ class ProductModel extends Mysql
 		$request = $this->select_all($sql);
 		return $request;
     }
+ 
 
 }
  ?>

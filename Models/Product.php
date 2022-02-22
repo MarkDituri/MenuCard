@@ -13,20 +13,25 @@ trait Product{
 	private $strRuta;
 	private $strRutaCategoria;
 
-	public function getProducts(){
+	public function getProducts($id_restaurant){
 		$this->con = new Mysql();
-		$sql = "SELECT * FROM products WHERE status = 'si';";			
+		$sql = "SELECT * FROM products WHERE id_restaurant = $id_restaurant AND status = 'si';";			
 		$request = $this->con->select_all($sql);		
 		return $request;	
 	}
 
 	public function getProduct(int $id_category)
     {
+		//Verifico QR
+		if(isset($_GET['id_rest'])) {
+			$id_restaurant = $_GET['id_rest'];
+		}
         $sql = "SELECT id_product,status,name,description,precio,url_img
         FROM products WHERE id_category = $id_category AND status = 'si'";
 		$request = $this->selectProduct($sql);
 		return $request;
     }
+
 
 }
 

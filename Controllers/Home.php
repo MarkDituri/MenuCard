@@ -12,6 +12,13 @@ class Home extends Controllers{
 	public function __construct()
 	{
 		parent::__construct();
+		session_start();
+		//session_regenerate_id(true);
+		if(empty($_SESSION['login']))
+		{
+			header('Location: '.base_url().'/login');
+			die();
+		}
 	}
 
 	public function Home()
@@ -25,7 +32,7 @@ class Home extends Controllers{
 		$data['datosMesa'] = $this->getDatosMesa($id_restaurant);
 		$data['slider'] = $this->getSliders();
 		$data['categories'] = $this->getCategories($id_restaurant);
-		$data['products'] = $this->getProducts();
+		$data['products'] = $this->getProducts($id_restaurant);
 		$this->views->getView($this,"home",$data);
 	}
 

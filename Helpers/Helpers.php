@@ -101,6 +101,12 @@
         $cantidad = number_format($cantidad,2,SPD,SPM);
         return $cantidad;
     }
-    
+    function sessionUser(int $id_rest){
+        require_once ("Models/LoginModel.php");
+        $objLogin = new LoginModel();
+        $request = $objLogin->sessionLogin($id_rest);
+        return $request;
+    }
+
 
  ?>

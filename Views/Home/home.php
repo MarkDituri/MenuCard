@@ -110,7 +110,21 @@ echo "</pre>";
                 $img_product = $arrProduct[$i]['url_img'];
             ?>
               <!-- Product -->
-
+              <div class="post post-list-sm circle">
+                <div class="thumb circle">
+                  <a href="blog-single.html">
+                    <div id="url_img" class="inner">
+                      <img src="<?= media();?>/images/products/<?= $img_product;?>" alt="post-title" />
+                    </div>
+                  </a>
+                </div>
+                <div class="details clearfix">
+                  <h6 id="title_product" class="post-title my-0"><a href="blog-single.html"><?= $name_product;?></a></h6>
+                  <ul class="meta list-inline mt-1 mb-0">
+                    <li id="description_product" class="list-inline-item"><?= $description_product;?></li>
+                  </ul>
+                </div>
+              </div>
               <!-- Fin Product -->
             <?php  }; ?>
           </div>
